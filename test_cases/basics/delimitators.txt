@@ -1,0 +1,5 @@
+func(a, b, c)
+lista = [1, 2, 3]
+dic = { "a": 1, "b": 2 }
+obj.attr
+@decorador

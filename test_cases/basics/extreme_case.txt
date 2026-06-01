@@ -1,0 +1,12 @@
+def test():
+    x = 10
+    y = 20.5
+    msg = "hola mundo"
+    if x < y and msg != "":
+        z = x * y + 100 // 2
+    else:
+        z = None
+
+    2bad = 5
+    error = "cadena
+    w = @

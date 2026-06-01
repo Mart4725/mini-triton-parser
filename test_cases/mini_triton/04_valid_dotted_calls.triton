@@ -1,0 +1,6 @@
+# expected: valid
+@triton.jit
+def kernel(ptr, x): {
+    a.b(ptr, x);
+    tl.load(ptr);
+}

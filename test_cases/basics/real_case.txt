@@ -1,0 +1,7 @@
+def suma(a, b):
+    resultado = a + b
+    return resultado
+
+x = suma(10, 20)
+y = x * 2.5
+z = y >= 50

@@ -1,0 +1,5 @@
+# expected: valid
+@triton.jit
+def k(a, b, c): {
+    y = a + b * c - 2;
+}

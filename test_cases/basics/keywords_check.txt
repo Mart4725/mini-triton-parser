@@ -1,0 +1,7 @@
+def funcion():
+    if x > 10:
+        return TRUE
+    elif x == 10:
+        return FALSE
+    else:
+        return None

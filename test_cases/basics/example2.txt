@@ -1,0 +1,41 @@
+import torch
+import triton
+import triton.language as tl
+
+@triton.jit
+def add_kernel(x_ptr, y_ptr, output_ptr, n_elements, BLOCK_SIZE: tl.constexpr):
+    pid = tl.program_id(axis=0)
+
+    # índice de inicio del bloque
+    block_start = pid * BLOCK_SIZE
+
+    # offsets dentro del bloque
+    offsets = block_start + tl.arange(0, BLOCK_SIZE)
+
+    # máscara para no salirnos del tamaño real
+    mask = offsets < n_elements
+
+    # cargar datos
+    x = tl.load(x_ptr + offsets, mask=mask)
+    y = tl.load(y_ptr + offsets, mask=mask)
+
+    # operación
+    result = x + y
+
+    # guardar resultado
+    tl.store(output_ptr + offsets, result, mask=mask)
+
+
+# 🔥 Uso
+size = 1024
+x = torch.rand(size, device="cuda")
+y = torch.rand(size, device="cuda")
+output = torch.empty_like(x)
+
+BLOCK_SIZE = 256
+
+grid = lambda meta: (triton.cdiv(size, meta['BLOCK_SIZE']),)
+
+add_kernel[grid](x, y, output, size, BLOCK_SIZE=BLOCK_SIZE)
+
+print(output[:10])

@@ -1,0 +1,7 @@
+def f():
+    x = 10
+    y = x + 5 * (2 - 1)
+    if x >= y:
+        return x
+    else:
+        return y

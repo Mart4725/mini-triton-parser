@@ -1,0 +1,6 @@
+# expected: valid
+@triton.jit
+def kernel(x, BS: tl.constexpr): {
+    y = x + 1;
+    tl.store(ptr, y);
+}

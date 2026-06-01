@@ -1,0 +1,4 @@
+msg = ""
+msg2 = "hola mundo"
+msg3 = "123"
+msg4 = "hola123"

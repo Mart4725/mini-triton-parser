@@ -1,0 +1,5 @@
+x=10+y
+msg="hola"
+bad2=3
+@error
+2bad=5
