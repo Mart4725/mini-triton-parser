@@ -1,0 +1,4 @@
+# expected: valid
+@triton.jit
+def kernel(): {
+}

@@ -1,0 +1,10 @@
+# expected: invalid
+@triton.jit
+def kernel_a(x): {
+    y = x;
+}
+
+@triton.jit
+def kernel_b(x): {
+    y = x;
+}

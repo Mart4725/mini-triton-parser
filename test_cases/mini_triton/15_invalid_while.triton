@@ -1,0 +1,5 @@
+# expected: invalid
+@triton.jit
+def kernel(x): {
+    while;
+}

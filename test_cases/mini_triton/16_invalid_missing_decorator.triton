@@ -1,0 +1,4 @@
+# expected: invalid
+def kernel(x): {
+    y = x;
+}

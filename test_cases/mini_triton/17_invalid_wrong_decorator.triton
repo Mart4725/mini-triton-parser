@@ -1,0 +1,5 @@
+# expected: invalid
+@triton.wrong
+def kernel(x): {
+    y = x;
+}

@@ -81,14 +81,14 @@ def print_test_result(result):
 
 def print_summary_table(results):
     print("\nFinal summary")
-    print("-" * 56)
-    print(f"{'test':<34} | {'status':<8} | {'expectation':<11} | {'ok':<2}")
-    print(f"{'-' * 34} | {'-' * 8} | {'-' * 11} | {'-' * 2}")
+    print("-" * 80)
+    print(f"{'test':<50} | {'status':<8} | {'expectation':<11} | {'ok':<2}")
+    print(f"{'-' * 50} | {'-' * 8} | {'-' * 11} | {'-' * 2}")
     for result in results:
         status = outcome_label(result.actual)
         expectation = outcome_label(result.expected)
         ok = "✅" if result.passed else "❌"
-        print(f"{result.name:<34} | {status:<8} | {expectation:<11} | {ok:<2}")
+        print(f"{result.name:<50} | {status:<8} | {expectation:<11} | {ok:<2}")
 
 
 def main():

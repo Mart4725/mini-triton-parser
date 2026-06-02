@@ -38,7 +38,7 @@ El runner lee todos los archivos `.triton` dentro de `test_cases/mini_triton/`, 
 - Resultado por archivo con `✅` o `❌`
 - Estado real como `passed` o `error`
 - Expectativa del test como `passed` o `error`
-- Tabla final con comparación entre resultado y expectativa
+- Tabla final con columnas `test | status | expectation | ok`
 
 ## Formato de pruebas
 
@@ -82,15 +82,23 @@ Cada nodo implementa `pretty()` para imprimir el árbol de forma legible.
 
 ## Verificación
 
-La suite actual incluye casos válidos e inválidos para:
+La suite actual incluye 22 casos de prueba en `test_cases/mini_triton/`.
+
+Cobertura actual:
 
 - Decorador `@triton.jit`
 - Declaración de kernel
 - Parámetros y anotaciones
+- Parámetros vacíos con cuerpo vacío y no vacío
 - Asignaciones
+- Sentencias de expresión (llamadas sin asignación)
 - Precedencia de operadores
 - Llamadas anidadas y con acceso por atributo
-- Errores de sintaxis como falta de `;`, `return` no soportado y kwargs
+- Rechazo de kwargs
+- Rechazo de `return`, `if`, `for`, `while`
+- Rechazo de falta de decorador, decorador incorrecto y falta de `def`
+- Rechazo de múltiples kernels
+- Errores de sintaxis como falta de `;`, operador incompleto y paréntesis no cerrados
 
 ## Nota
 

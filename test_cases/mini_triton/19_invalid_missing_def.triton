@@ -1,0 +1,5 @@
+# expected: invalid
+@triton.jit
+kernel(x): {
+    y = x;
+}
